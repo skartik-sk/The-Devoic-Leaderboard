@@ -5,13 +5,14 @@ const Student = require('./db');
 
 const app = express();
 const port = 3000;
- 
+   
 app.use(express.json());
 app.use(cors());
 app.get('/data', async(req, res) => {
     const data = await Student.find();
     res.json(data)
 })
+ 
 app.get('/', async (req, res) => {
     const data = await getGoogleSheetsData('1U6vMi2WSHhmCp5y21AFNfRG26_rWncH3rOlnq036smc', 'Sheet1!A2:H');
     const students = data.map(row => ({
