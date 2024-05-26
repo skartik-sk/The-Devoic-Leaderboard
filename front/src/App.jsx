@@ -1,33 +1,37 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [message, setMessage] = useState([])
+  useEffect(() => {
+    const getdata= async()=>{
+      const data = axios.get('http://localhost:3000/data')
+    const response = await data
+setMessage(response.data)
+    }
+    getdata()
+  }, []) 
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      {/* <div>{message}</div> */}
+      {message.map((student) => (
+        <div key={student._id}>
+          <h2>{student.name}</h2>
+          <p>{student.department}</p>
+          <p>{student.total}</p> 
+          <p>{student.subPointDistribution.Engagement}</p>
+          <p>{student.subPointDistribution.Learning}</p>
+          <p>{student.subPointDistribution.Project}</p>
+          <p>{student.subPointDistribution.Additional}</p>
+        </div>
+      ))}
+    </div>
+      
     </>
   )
 }

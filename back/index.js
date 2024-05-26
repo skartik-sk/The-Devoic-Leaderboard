@@ -7,12 +7,13 @@ const app = express();
 const port = 3000;
    
 app.use(express.json());
-app.use(cors());
+app.use(cors({  origin:[ "http://localhost:5173"],
+credentials:true}));
 app.get('/data', async(req, res) => {
     const data = await Student.find();
     res.json(data)
 })
- 
+  
 app.get('/', async (req, res) => {
     const data = await getGoogleSheetsData('1U6vMi2WSHhmCp5y21AFNfRG26_rWncH3rOlnq036smc', 'Sheet1!A2:H');
     const students = data.map(row => ({
@@ -28,7 +29,7 @@ app.get('/', async (req, res) => {
         }, 
     })); 
 // Clear the Student collection
-await Student.deleteMany({});
+await Student.deleteMany();
     await Student.insertMany(students);
 
     res.send('Data inserted into MongoDB');
