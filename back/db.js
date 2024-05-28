@@ -22,7 +22,7 @@ const studentSchema = new mongoose.Schema({
     },
     isDeleted: { type: Boolean,  },
 });
-
+ 
 const Student = mongoose.model('Student', studentSchema);
 
 
