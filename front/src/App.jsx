@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import axios from 'axios'
 import './App.css'
+import MainContetn from './MainContetn'
 
 function App() {
   const [message, setMessage] = useState([])
@@ -17,21 +18,7 @@ setMessage(response.data)
 
   return (
     <>
-    <div>
-      //Todo: Add  code for ui
-      {/* <div>{message}</div> */}
-      {message.map((student) => (
-        <div key={student._id}>
-          <h2>{student.name}</h2>
-          <p>{student.department}</p>
-          <p>{student.total}</p> 
-          <p>{student.subPointDistribution.Engagement}</p>
-          <p>{student.subPointDistribution.Learning}</p>
-          <p>{student.subPointDistribution.Project}</p>
-          <p>{student.subPointDistribution.Additional}</p>
-        </div>
-      ))}
-    </div>
+    <MainContetn data= {message}/>
       
     </>
   )
