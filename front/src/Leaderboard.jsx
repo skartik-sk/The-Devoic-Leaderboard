@@ -14,8 +14,6 @@ const Leaderboard = ({ data }) => {
     const sortedData = [...data].sort((a, b) => b.total - a.total);
     const topThree = sortedData.slice(0, 3);
     const rest = sortedData.slice(3);
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
   console.log(data);
   return (
     <div className="">
