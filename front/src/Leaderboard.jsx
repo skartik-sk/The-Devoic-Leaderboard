@@ -7,7 +7,7 @@ import {
   TableColumn,
   TableBody,
   TableRow,
-  TableCell,
+  TableCell, 
 } from "@nextui-org/react";
 
 const Leaderboard = ({ data }) => {
