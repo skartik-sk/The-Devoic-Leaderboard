@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const getGoogleSheetsData = require('./sheets');
 const Student = require('./db');
-
+ 
 const app = express();
 const port = 3000;
    
@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
             Learning: Number(row[4]),
             Project: Number(row[5]),
             Additional: Number(row[6]),
-        }, 
+        },  
     })); 
 // Clear the Student collection
 await Student.deleteMany();
