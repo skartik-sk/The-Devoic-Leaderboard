@@ -1,3 +1,4 @@
+console.log("started");
 const express = require('express');
 const cors = require('cors');
 const getGoogleSheetsData = require('./sheets');
