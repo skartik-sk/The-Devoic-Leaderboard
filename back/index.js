@@ -31,7 +31,6 @@ app.get('/', async (req, res) => {
 // Clear the Student collection
 await Student.deleteMany();
     await Student.insertMany(students);
-
     res.send('Data inserted into MongoDB');
 }); 
 

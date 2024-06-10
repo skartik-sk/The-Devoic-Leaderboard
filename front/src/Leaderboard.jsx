@@ -25,7 +25,7 @@ const Leaderboard = ({ data }) => {
         {sortedData.map((item, index) => (
           <AccordionItem
             key={index}
-            startContent={index + 4}
+            startContent={index + 1}
             aria-label={`Accordion ${index + 1}`}
             title={
               <div className=" flex w-full justify-between">
