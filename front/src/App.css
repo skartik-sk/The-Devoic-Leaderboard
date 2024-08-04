@@ -32,7 +32,25 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+@media (max-width: 768px) {
+  #root {
+    max-width: 100%;
+    padding: 1rem;
+  }
 
+  .logo {
+    height: 4em;
+    padding: 1em;
+  }
+
+  .card {
+    padding: 1em;
+  }
+
+  .read-the-docs {
+    font-size: 14px;
+  }
+}
 .card {
   padding: 2em;
 }

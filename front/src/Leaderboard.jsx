@@ -17,27 +17,28 @@ const getMedalColor = (rank) => {
     default: return '#fff';
   }
 };
+
 const Leaderboard = ({ data }) => {
     const sortedData = [...data].sort((a, b) => b.total - a.total);
     const topThree = sortedData.slice(0, 3);
     const rest = sortedData.slice(3);
   console.log(data);
-  return (
-    <div className="">
-      {/* main */}
-
-      {/* after 4 */}
-
-      {/* <Accordion variant="bordered">
+const getcode = () => {
+  if (window.innerWidth < 568) {
+    return (
+      <div>
+      <Accordion style={{fontFamily: 'Dancing Script', fontSize:"20px"}} variant="bordered">
         {sortedData.map((item, index) => (
           <AccordionItem
             key={index}
-            startContent={index + 1}
+            startContent={<span style={{backgroundColor: getMedalColor(index+1), color: "black"}} className={`inline-flex items-center justify-center w-8 h-8 rounded-full  text-white font-bold`}>
+            {index+1}
+          </span>}
             aria-label={`Accordion ${index + 1}`}
             title={
               <div className=" flex w-full justify-between">
-                <div>{item.name}</div>
-                <div>{item.total}</div>
+                <div style={{color:"white"}} >{item.name}</div>
+                <div  style={{color:"white"}}>{item.total}</div>
               </div>
             }
           >
@@ -61,14 +62,13 @@ const Leaderboard = ({ data }) => {
       
           </AccordionItem>
         ))}
-      </Accordion> */}
-
-
-
-      <div className="container mx-auto px-4 py-8">
-      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">Leaderboard - Mars of the Moon</h1>
-      <div className="overflow-x-auto">
-        <table className="w-full">
+      </Accordion>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+       <table className="w-full ">
           <thead>
             <tr className="text-left text-sm text-gray-600">
               <th className="p-3">Rank</th>
@@ -112,9 +112,30 @@ const Leaderboard = ({ data }) => {
           </tbody>
         </table>
       </div>
-      {/* <button className="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-        Load more
-      </button> */}
+    );
+  }
+};
+
+  return (
+    <div className="">
+      {/* main */}
+
+      {/* after 4 */}
+
+    
+
+
+
+      <div className="container mx-auto px-4 py-8">
+      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">The Devoic's Leaderboard</h1>
+      <div className="overflow-x-auto">
+        {getcode()}
+        
+
+  
+
+      </div>
+    
     </div>
     </div>
   );
