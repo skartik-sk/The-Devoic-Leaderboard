@@ -8,8 +8,8 @@ const app = express();
 const port = 3000;
    
 app.use(express.json());
-app.use(cors({origin:["https://the-devoic-leaderboard-3x1h.vercel.app","http://localhost:3000"],
-credentials:true}));
+app.use(cors({
+    credentials:true}));
 app.get('/data', async(req, res) => {
     const data = await Student.find();
     res.json(data)
