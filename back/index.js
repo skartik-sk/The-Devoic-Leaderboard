@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
    
 app.use(express.json());
-app.use(cors({  origin:[ "http://localhost:5173"],
+app.use(cors({
 credentials:true}));
 app.get('/data', async(req, res) => {
     const data = await Student.find();
