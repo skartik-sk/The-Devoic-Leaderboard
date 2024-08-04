@@ -9,7 +9,14 @@ import {
   TableRow,
   TableCell, 
 } from "@nextui-org/react";
-
+const getMedalColor = (rank) => {
+  switch (rank) {
+    case 1: return "#FFD700";
+    case 2: return "#C0C0C0";
+    case 3: return '#cd7f32';
+    default: return '#fff';
+  }
+};
 const Leaderboard = ({ data }) => {
     const sortedData = [...data].sort((a, b) => b.total - a.total);
     const topThree = sortedData.slice(0, 3);
@@ -21,7 +28,7 @@ const Leaderboard = ({ data }) => {
 
       {/* after 4 */}
 
-      <Accordion variant="bordered">
+      {/* <Accordion variant="bordered">
         {sortedData.map((item, index) => (
           <AccordionItem
             key={index}
@@ -54,7 +61,61 @@ const Leaderboard = ({ data }) => {
       
           </AccordionItem>
         ))}
-      </Accordion>
+      </Accordion> */}
+
+
+
+      <div className="container mx-auto px-4 py-8">
+      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">Leaderboard - Mars of the Moon</h1>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="text-left text-sm text-gray-600">
+              <th className="p-3">Rank</th>
+              <th className="p-3">Name</th>
+              <th className="p-3">Engagement</th>
+              <th className="p-3">Learning</th>
+              <th className="p-3">Project</th>
+              <th className="p-3">Additional</th>
+              <th className="p-3">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedData.map((entry,key) => (
+              <tr style={{fontFamily: 'Dancing Script'}} key={key+1} className="border-b border-gray-200 text-xl">
+                <td className="p-3">
+                  <span style={{backgroundColor: getMedalColor(key+1), color: "black"}} className={`inline-flex items-center justify-center w-8 h-8 rounded-full  text-white font-bold`}>
+                    {key+1}
+                  </span>
+                </td>
+                <td className="p-3">
+                  <div className="flex items-center">
+                  
+                    <span className="font-medium">{entry.name}</span>
+                  </div>
+                </td>
+                <td className="p-3">{entry.subPointDistribution.Engagement}</td>
+                <td className="p-3">{entry.subPointDistribution.Learning}</td>
+                <td className="p-3 font-medium">{entry.subPointDistribution.Project}</td>
+                <td className="p-3 font-medium">{entry.subPointDistribution.Additional}</td>
+                <td className="p-3 font-bold">{entry.total}</td>
+                <td className="p-3">
+                  {/* {entry.tags.map((tag) => (
+                    <span key={tag} className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full mr-1">
+                      {tag}
+                    </span>
+                  ))} */}
+                </td>
+                
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* <button className="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+        Load more
+      </button> */}
+    </div>
     </div>
   );
 };
