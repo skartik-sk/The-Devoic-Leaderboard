@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import axios from 'axios'
 import './App.css'
 import MainContetn from './MainContetn'
+import Tad from './tabs'
+import Loading from './Loading'
 
 function App() {
   const [message, setMessage] = useState([])
@@ -19,8 +21,9 @@ setMessage(response.data)
 
   return (
     <>
-    <MainContetn data= {message}/>
-      
+   {  message.length==0?<Loading/>:  <Tad data={message}/>
+    }
+    
     </>
   )
 }
