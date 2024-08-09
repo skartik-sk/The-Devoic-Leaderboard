@@ -11,7 +11,7 @@ function App() {
   const [message, setMessage] = useState([])
   useEffect(() => {
     const getdata= async()=>{
-      const data = axios.get('https://the-devoic-leaderboard-1.onrender.com/data')
+      const data = axios.get('https://the-devoic-leaderboard.vercel.app/data')
     const response = await data
     console.log(response.data)
 setMessage(response.data)
