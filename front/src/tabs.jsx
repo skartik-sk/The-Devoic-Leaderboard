@@ -167,7 +167,7 @@ export default function Tad({ data }) {
           {" "}
           <Leaderboard data={graphicsData} />
         </Tab>{" "}
-        <Tab
+        {/* <Tab
           key="Media"
           title={
             <div className="flex items-center space-x-2">
@@ -187,7 +187,7 @@ export default function Tad({ data }) {
         >
           {" "}
           <Leaderboard data={mediaData} />
-        </Tab>
+        </Tab> */}
       </Tabs>
       );
     } else {
@@ -331,7 +331,7 @@ export default function Tad({ data }) {
           {" "}
           <Leaderboard data={graphicsData} />
         </Tab>{" "}
-        <Tab
+        {/* <Tab
           key="Media"
           title={
             <div className="flex items-center space-x-2">
@@ -351,7 +351,7 @@ export default function Tad({ data }) {
         >
           {" "}
           <Leaderboard data={mediaData} />
-        </Tab>
+        </Tab> */}
       </Tabs>
       );
     }
