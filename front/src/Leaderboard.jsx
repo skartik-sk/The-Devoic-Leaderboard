@@ -26,6 +26,9 @@ const Leaderboard = ({ data }) => {
 const getcode = () => {
   if (window.innerWidth < 568) {
     return (
+      <>
+      <h1  className=" font-bold mb-6">The Devoic's Leaderboard</h1>
+      <div className="overflow-x-auto">
       <div>
       <Accordion style={{fontFamily: 'Dancing Script', fontSize:"20px"}} variant="bordered">
         {sortedData.map((item, index) => (
@@ -64,9 +67,14 @@ const getcode = () => {
         ))}
       </Accordion>
       </div>
+      </div>
+      </>
     );
   } else {
     return (
+      <>
+      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">The Devoic's Leaderboard</h1>
+      <div className="overflow-x-auto">
       <div>
        <table className="w-full ">
           <thead>
@@ -112,6 +120,8 @@ const getcode = () => {
           </tbody>
         </table>
       </div>
+      </div>
+      </>
     );
   }
 };
@@ -127,14 +137,13 @@ const getcode = () => {
 
 
       <div className="container mx-auto px-4 py-8">
-      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">The Devoic's Leaderboard</h1>
-      <div className="overflow-x-auto">
+      
         {getcode()}
         
 
   
 
-      </div>
+      
     
     </div>
     </div>
