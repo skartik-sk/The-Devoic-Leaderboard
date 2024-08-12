@@ -298,7 +298,7 @@ export default function Tad({ data }) {
         >
           <Leaderboard data={videoData} />
         </Tab>
-        <Tab
+        <Tab 
           key="Graphics"
           title={
             <div className="flex items-center space-x-2">
