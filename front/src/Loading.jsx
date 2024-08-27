@@ -3,7 +3,7 @@ import React from 'react'
 const Loading = () => {
   return (
     <div>
-
+{/* tis is main page */}
         {/* <div class="spinner"></div> */}
 
 <div class="loader">
