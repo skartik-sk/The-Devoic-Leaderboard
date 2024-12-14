@@ -27,7 +27,7 @@ const getcode = () => {
   if (window.innerWidth < 568) {
     return (
       <>
-      <h2 style={{fontSize:"30px"}} className=" font-bold mb-6">The Devoic's Leaderboard</h2>
+      <h2 style={{fontSize:"30px"}} className=" font-bold mb-6">The GSQ's Leaderboard</h2>
       <div className="overflow-x-auto">
       <div>
       <Accordion style={{fontFamily: 'Dancing Script', fontSize:"20px"}} variant="bordered">
@@ -73,7 +73,7 @@ const getcode = () => {
   } else {
     return (
       <>
-      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">The Devoic's Leaderboard</h1>
+      <h1 style={{fontFamily: 'Uncial Antiqua'}} className="text-2xl font-bold mb-6">The GSQ's Leaderboard</h1>
       <div className="overflow-x-auto">
       <div>
        <table className="w-full ">
